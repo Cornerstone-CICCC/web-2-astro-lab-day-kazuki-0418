@@ -1,0 +1,150 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Header />
+
+<main class="about-page">
+    <div class="container">
+        <h1>About Us</h1>
+        <p>
+            Welcome to the about page of My Awesome Site. Here you will find
+            information about who we are and what we do.
+        </p>
+
+        <section class="about-section">
+            <h2>Our Mission</h2>
+            <p>
+                Our mission is to build great projects that help people achieve
+                more with the tools we provide. We aim to create innovative
+                solutions for everyday problems while ensuring user experience
+                and simplicity.
+            </p>
+        </section>
+
+        <section class="about-section">
+            <h2>Our Story</h2>
+            <p>
+                It all started back in 2021 when a small group of passionate
+                developers came together to create something new. Since then,
+                we’ve been growing and improving our projects to better serve
+                the community.
+            </p>
+        </section>
+
+        <section class="about-section">
+            <h2>Our Team</h2>
+            <p>
+                Our team consists of talented developers, designers, and
+                creatives working together to make the world a better place.
+            </p>
+            <ul>
+                <li><strong>John Doe</strong> - CEO & Founder</li>
+                <li><strong>Jane Smith</strong> - Lead Developer</li>
+                <li><strong>Emily Davis</strong> - Designer</li>
+                <li><strong>Michael Brown</strong> - Marketing Specialist</li>
+            </ul>
+        </section>
+
+        <section class="about-section">
+            <h2>Get in Touch</h2>
+            <p>
+                Feel free to reach out to us with any questions or inquiries. We
+                would love to hear from you.
+                <br />
+                <strong>Email:</strong> contact@myawesomesite.com
+            </p>
+        </section>
+    </div>
+</main>
+
+<Footer />
+
+<style>
+    .about-page {
+        background-color: #f7f7f7;
+        padding: 50px 0;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+        color: #007bff;
+        margin-bottom: 10px;
+    }
+
+    .about-section {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .about-section ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .about-section li {
+        font-size: 1.1rem;
+        margin: 5px 0;
+    }
+
+    .about-section p {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: #555;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .about-page {
+            padding: 20px 0;
+        }
+
+        h1 {
+            font-size: 2rem;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+        }
+
+        .about-section p {
+            font-size: 0.9rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .container {
+            padding: 0 10px;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+        }
+
+        .about-section p {
+            font-size: 0.85rem;
+        }
+    }
+</style>

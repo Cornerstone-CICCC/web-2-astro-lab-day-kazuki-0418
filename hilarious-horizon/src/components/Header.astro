@@ -1,0 +1,77 @@
+---
+/* You can import styles here if needed */
+---
+
+<header class="header">
+    <div class="container">
+        <!-- Logo or site title -->
+        <a href="/" class="logo">My Awesome Site</a>
+
+        <!-- Navigation Menu -->
+        <nav class="nav">
+            <ul class="nav-list">
+                <li><a href="/home" class="nav-link">Home</a></li>
+                <li><a href="/blog" class="nav-link">Blog</a></li>
+                <li><a href="/projects" class="nav-link">Projects</a></li>
+                <li><a href="/about" class="nav-link">About</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<style>
+    /* General header styles */
+    .header {
+        background-color: #333;
+        padding: 1rem 0;
+        color: #fff;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Logo styles */
+    .logo {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: #fff;
+        text-decoration: none;
+    }
+
+    /* Navigation styles */
+    .nav {
+        display: flex;
+    }
+
+    .nav-list {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+    }
+
+    .nav-link {
+        color: #fff;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        transition: background-color 0.3s ease;
+    }
+
+    .nav-link:hover {
+        background-color: #555;
+        border-radius: 4px;
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+        .nav {
+            display: none;
+        }
+    }
+</style>

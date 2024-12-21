@@ -1,0 +1,113 @@
+---
+import { getCollection, getEntry } from "astro:content";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { render } from "astro:content";
+
+export async function getStaticPaths() {
+    const projects = await getCollection("project");
+    return projects.map((project) => ({
+        params: { id: project.id },
+        props: { post: project },
+    }));
+}
+
+const { id } = Astro.params;
+const project = await getEntry("project", id);
+
+if (!project) {
+    throw new Error("Project not found");
+}
+
+const { title } = project.data;
+const { Content } = await render(project);
+---
+
+<Header />
+
+<main class="blog-layout">
+    <div class="container">
+        <section class="blog-hero">
+            <h1>{title}</h1>
+        </section>
+
+        <section class="blog-content">
+            <Content />
+        </section>
+    </div>
+    <Footer />
+</main>
+
+<style>
+    /* ベースのリセット */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* ボディのスタイル */
+    body {
+        font-family: "Arial", sans-serif;
+        line-height: 1.6;
+        background-color: #f4f7fb;
+        color: #333;
+    }
+
+    /* メインコンテンツ */
+    .blog-layout {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 40px 20px;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    /* ヒーローセクション */
+    .blog-hero {
+        background: linear-gradient(135deg, #ff7e5f, #feb47b);
+        padding: 40px;
+        color: #fff;
+        text-align: center;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .blog-hero h1 {
+        font-size: 3rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    /* コンテンツセクション */
+    .blog-content {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        margin-top: 40px;
+    }
+
+    .blog-content p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: #555;
+    }
+
+    /* レスポンシブ対応 */
+    @media (max-width: 768px) {
+        .blog-hero h1 {
+            font-size: 2rem;
+        }
+
+        .blog-content {
+            padding: 20px;
+        }
+    }
+</style>
